@@ -19,3 +19,6 @@ var contactSchema = mongoose.Schema({
 })
 
 var Contact = module.exports = mongoose.model('contact',contactSchema )
+module.exports.get = (callback , limit)=>{
+    Contact.find(callback).limit(limit)
+}
