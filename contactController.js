@@ -1,4 +1,5 @@
 var Contact = require('./contactModel')
+const Bcrypt = require('bcryptjs')
 
 exports.new = (req, res) =>{
     var contact = new Contact();
@@ -106,7 +107,7 @@ exports.register = (req, res) =>{
 
     contact.name = req.body.name ? req.body.name : contact.name;
     contact.email = req.body.email
-    contact.password = inputPassword
+    contact.password = Bcrypt.hashSync(inputPassword)
     contact.gender = req.body.gender
     contact.phone= req.body.phone
 
@@ -142,8 +143,8 @@ exports.doLogin = async (req, res)=>{
                 return res.status(400).send({message:"The username does not exit"})
             }
             else{
-                console.log(user.password)
-                if(req.body.passwords != user.password){
+                console.log(Bcrypt.compareSync(req.body.passwords,user.password))
+                if(!Bcrypt.compareSync(req.body.passwords,user.password ) ){
                     return res.status(400).send({message:"The password is invalid"})
                 }
 
