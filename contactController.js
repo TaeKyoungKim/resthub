@@ -157,6 +157,8 @@ exports.doLogin = async (req, res)=>{
         }
     }
     else{
-        console.log("emailId is need!!!")
+        res.json({
+            message : "Useranme is empty"
+        })
     }
 }    
