@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login page</title>
+</head>
+<body>
+    <h1>LOGIN</h1>
+    <form method="POST" action="/api/login">
+        <table>
+            <tr>
+                <td><label>name : </label></td>
+                <td><input type="text" name="id" /></td>
+            </tr>
+            <tr>
+                <td><label>email : </label></td>
+                <td><input type="text" name="passwords" /></td>
+            </tr>
+            
+            <tr>
+                <td><input type="submit" value="login" /></td>
+                <td><input type="button" value="register" onclick="location.href='/api/register'" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

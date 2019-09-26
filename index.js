@@ -8,7 +8,7 @@ var app = express();
 dot.config();
 
 var password = process.env.PASSWORD
-mongoose.connect(`mongodb+srv://root:${password}@cluster0-tecvg.mongodb.net/test?retryWrites=true&w=majority`)
+mongoose.connect(`mongodb+srv://root:${password}@cluster0-7ym2a.mongodb.net/test?retryWrites=true&w=majority`)
 
 var db = mongoose.connection;
 
@@ -19,7 +19,7 @@ if(!db){
 else{
     console.log("DB is connecting successfully ");
 }
-app.set('views',__dirname +'/veiws');
+app.set('views',__dirname +'/views');
 app.set('view engine', 'ejs');
 app.set('html',require('ejs').renderFile)
 
